@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), ILoadMore {
     private fun loadFist10Coin(){
         client = OkHttpClient()
         request = Request.Builder()
-                .url(String.format("https://api.coinmarketcap.com/v1/ticker/?start=%d&limit=10"))
+                .url(String.format("https://api.coinmarketcap.com/v1/ticker/?start=0&limit=10"))
                 .build()
 
         client.newCall(request)
