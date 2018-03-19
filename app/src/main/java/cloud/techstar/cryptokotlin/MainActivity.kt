@@ -29,6 +29,29 @@ class MainActivity : AppCompatActivity(), ILoadMore {
             Toast.makeText(this@MainActivity, "Data max is"+Utils.MAX_COIN_LOAD, Toast.LENGTH_LONG).show()
     }
 
+    private fun loadFist10Coin(index: Int){
+        client = OkHttpClient()
+        request = Request.Builder()
+                .url(String.format("https://api.coinmarketcap.com/v1/ticker/?start=%d&limit=10", index))
+                .build()
+
+        client.newCall(request)
+                .enqueue(object :Callback{
+                    override fun onFailure(call: Call?, e: IOException?) {
+                        Log.d("ERROR: ", e.toString())
+                    }
+
+                    override fun onResponse(call: Call?, response: Response?) {
+                        val body = response.body()!!.string()
+                        val gson = Gson()
+                        items = gson.fromJson(body, object:TypeToken<List<Coins>>(){}.type)
+                        runOnUiThread{
+                            adapter.updateData(items)
+                        }
+                    }
+                })
+    }
+    
     private fun loadNext10Coin(index: Int){
         client = OkHttpClient()
         request = Request.Builder()
