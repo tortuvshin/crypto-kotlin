@@ -41,7 +41,7 @@ class CoinAdapter(recyclerView: RecyclerView, internal var activity: Activity, v
                 super.onScrolled(recyclerView, dx, dy)
                 totalItemCount = linearLayout.itemCount
                 lastVisibleItem = linearLayout.findLastVisibleItemPosition()
-                if (isLoading!! && totalItemCount <= lastVisibleItem+visibleThreshold){
+                if (!isLoading && totalItemCount <= lastVisibleItem+visibleThreshold){
                     if (loadMore != null)
                         loadMore!!.onLoadMore()
                     isLoading = true

@@ -2,8 +2,10 @@ package cloud.techstar.cryptokotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Adapter
+import android.widget.LinearLayout
 import android.widget.Toast
 import cloud.techstar.cryptokotlin.`interface`.ILoadMore
 import cloud.techstar.cryptokotlin.adapters.CoinAdapter
@@ -90,6 +92,9 @@ class MainActivity : AppCompatActivity(), ILoadMore {
             loadFist10Coin()
             setUpAdapter()
         }
+
+        coin_recycler_view.layoutManager = LinearLayoutManager(this)
+        setUpAdapter()
     }
 
     private fun setUpAdapter(){
