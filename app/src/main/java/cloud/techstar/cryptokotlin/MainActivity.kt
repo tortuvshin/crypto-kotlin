@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity(), ILoadMore {
             Toast.makeText(this@MainActivity, "Data max is"+Utils.MAX_COIN_LOAD, Toast.LENGTH_LONG).show()
     }
 
-    private fun loadFist10Coin(index: Int){
+    private fun loadFist10Coin(){
         client = OkHttpClient()
         request = Request.Builder()
-                .url(String.format("https://api.coinmarketcap.com/v1/ticker/?start=%d&limit=10", index))
+                .url(String.format("https://api.coinmarketcap.com/v1/ticker/?start=%d&limit=10"))
                 .build()
 
         client.newCall(request)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), ILoadMore {
                         Log.d("ERROR: ", e.toString())
                     }
 
-                    override fun onResponse(call: Call?, response: Response?) {
+                    override fun onResponse(call: Call?, response: Response) {
                         val body = response.body()!!.string()
                         val gson = Gson()
                         items = gson.fromJson(body, object:TypeToken<List<Coins>>(){}.type)
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), ILoadMore {
                     }
                 })
     }
-    
+
     private fun loadNext10Coin(index: Int){
         client = OkHttpClient()
         request = Request.Builder()
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), ILoadMore {
                         Log.d("ERROR: ", e.toString())
                     }
 
-                    override fun onResponse(call: Call?, response: Response?) {
+                    override fun onResponse(call: Call?, response: Response) {
                         val body = response.body()!!.string()
                         val gson = Gson()
                         val newItems = gson.fromJson<List<Coins>>(body, object:TypeToken<List<Coins>>(){}.type)
@@ -82,5 +82,19 @@ class MainActivity : AppCompatActivity(), ILoadMore {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        swife_to_refresh.post { loadFist10Coin() }
+
+        swife_to_refresh.setOnRefreshListener {
+            items.clear()
+            loadFist10Coin()
+            setUpAdapter()
+        }
+    }
+
+    private fun setUpAdapter(){
+        adapter = CoinAdapter(coin_recycler_view, this@MainActivity, items)
+        coin_recycler_view.adapter = adapter
+        adapter.setLoadMore(this)
     }
 }
