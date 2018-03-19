@@ -28,7 +28,7 @@ class CoinViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 
 class CoinAdapter(recyclerView: RecyclerView, internal var activity: Activity, var items:List<Coins>): RecyclerView.Adapter<CoinViewHolder>() {
 
-    var loadMore:ILoadMore?=null
+    internal var loadMore:ILoadMore?=null
     var isLoading:Boolean?=null
     var visibleThreshold=5
     var lastVisibleItem:Int=0
