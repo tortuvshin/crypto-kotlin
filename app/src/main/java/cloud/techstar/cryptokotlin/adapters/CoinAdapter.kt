@@ -29,7 +29,7 @@ class CoinViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 class CoinAdapter(recyclerView: RecyclerView, internal var activity: Activity, var items:List<Coins>): RecyclerView.Adapter<CoinViewHolder>() {
 
     internal var loadMore:ILoadMore?=null
-    var isLoading:Boolean?=null
+    var isLoading:Boolean?=false
     var visibleThreshold=5
     var lastVisibleItem:Int=0
     var totalItemCount:Int=0
@@ -41,9 +41,8 @@ class CoinAdapter(recyclerView: RecyclerView, internal var activity: Activity, v
                 super.onScrolled(recyclerView, dx, dy)
                 totalItemCount = linearLayout.itemCount
                 lastVisibleItem = linearLayout.findLastVisibleItemPosition()
-                if (!isLoading && totalItemCount <= lastVisibleItem+visibleThreshold){
-                    if (loadMore != null)
-                        loadMore!!.onLoadMore()
+                if (isLoading == false && totalItemCount <= lastVisibleItem+visibleThreshold){
+                    loadMore!!.onLoadMore()
                     isLoading = true
                 }
             }
