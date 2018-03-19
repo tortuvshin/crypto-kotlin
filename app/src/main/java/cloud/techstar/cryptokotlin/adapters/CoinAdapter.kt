@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_coin.view.*
 
 class CoinViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-    var voinIcon = itemView.coin_icon
+    var coinIcon = itemView.coin_icon
     var coinSymbol = itemView.coin_symbol
     var coinName = itemView.coin_name
     var coinPrice = itemView.price_usd
@@ -78,6 +78,7 @@ class CoinAdapter(recyclerView: RecyclerView, internal var activity: Activity, v
                 .append(coinModel.symbol!!.toLowerCase())
                 .append(".png")
                 .toString())
+                .into(item.coinIcon)
 
         item.coinOneHourChange.setTextColor(if (coinModel.percent_change_1h!!.contains("-"))
             Color.parseColor("#FF0000")
