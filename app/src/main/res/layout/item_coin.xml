@@ -47,6 +47,7 @@
                         android:layout_height="wrap_content"
                         tools:ignore="RtlCompat" />
                     <TextView
+                        android:id="@+id/coin_name"
                         android:text="Bitcoin"
                         android:textStyle="bold"
                         android:layout_marginStart="10dp"
