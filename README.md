@@ -1,11 +1,6 @@
 ## Crypto Kotlin
 Crypto currencies current price and latest change for the price of crypto currencies like Bitcoin, Ethereum, Litecoin and more.
 
-### Download It
-<a href="https://play.google.com/store/apps/">
-  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
-</a>
-
 ### Demo
 ![](https://github.com/techstar-cloud/crypto-kotlin/blob/master/asset/20180322_012846.gif)
 
