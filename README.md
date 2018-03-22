@@ -1,6 +1,3 @@
-<p align="center">
-	<img src="https://github.com/techstar-cloud/crypto-kotlin/blob/master/app/src/main/res/drawable/logo.png" width="200"/>
-</p>
 
 <p align="center">
     <a href="https://github.com/techstar-cloud/crypto-kotlin/issues">
