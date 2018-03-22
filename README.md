@@ -1,22 +1,3 @@
-
-<p align="center">
-    <a href="https://github.com/techstar-cloud/crypto-kotlin/issues">
-        <img src="https://img.shields.io/github/issues/techstar-cloud/crypto-kotlin.svg"
-            alt="Issues"></a>
-     <a href="https://github.com/techstar-cloud/crypto-kotlin/fork">
-        <img src="https://img.shields.io/github/forks/techstar-cloud/crypto-kotlin.svg?style=social&label=Fork"
-            alt="Forks"></a>
-    <a href="https://github.com/techstar-cloud/crypto-kotlin/stargazers">
-        <img src="https://img.shields.io/github/stars/techstar-cloud/crypto-kotlin.svg?style=social&label=Stars"
-            alt="Stars"></a>
-    <a href="https://raw.githubusercontent.com/techstar-cloud/crypto-kotlin/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-blue.svg"
-            alt="LICENSE"></a>
-    <a href="https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D">
-        <img src="https://img.shields.io/twitter/url/https/github.com/techstar-cloud/crypto-kotlin.svg?style=social"
-            alt="Tweet"></a>
-</p>
-
 ## Crypto Kotlin
 Crypto currencies current price and latest change for the price of crypto currencies like Bitcoin, Ethereum, Litecoin and more.
 
