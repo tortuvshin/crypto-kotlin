@@ -25,8 +25,7 @@ You may contribute in several ways like creating new features, fixing bugs, impr
 or translating any document here to your language. [Find more information in CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-
-Techstar Ecommerce is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Crypto Kotlin is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 **[⬆ back to top](#crypto-kotlin)**
 
